@@ -12,7 +12,7 @@
 
 <div id="app">
     <section>
-        <h2 class="font-bold mb-2">Assignments</h2>
+        <h2 class="font-bold mb-6">Assignments</h2>
         <ul>
             <li v-for="assignment in assignments">
                 {{ assignment.name }}
@@ -20,6 +20,16 @@
             </li>
         </ul>
     </section>
+    <section class="mt-10">
+        <h2 class="font-bold mb-6">Assignments Completed</h2>
+        <ul>
+            <li v-for="assignment in assignments.filter(a => a.complete)">
+                {{ assignment.name }}
+                <input type="checkbox" v-model="assignment.complete">
+            </li>
+        </ul>
+    </section>
+
 </div>
 
 <script>
@@ -29,7 +39,7 @@
                 assignments: [
                     {name: 'Finish project', complete: false},
                     {name: 'Read chapter 4', complete: false},
-                    {name: 'Trun in homeWork', complete: true},
+                    {name: 'Trun in homeWork', complete: false},
                 ]
             }
         },
